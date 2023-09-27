@@ -1,26 +1,28 @@
-import {withRouter} from 'react-router-dom'
+import {Link, withRouter} from 'react-router-dom'
+
 import Cookies from 'js-cookie'
-import {NavContainer, HeaderLogo, HeaderLogoutButton} from './styledComponents'
+
+import './index.css'
 
 const Header = props => {
-  const onClickLogout = () => {
+  const remove = () => {
     const {history} = props
     Cookies.remove('jwt_token')
     history.replace('/ebank/login')
   }
-
   return (
-    <>
-      <NavContainer>
-        <HeaderLogo
+    <nav className="nav-el">
+      <Link to="/" className="link-el">
+        <img
           src="https://assets.ccbp.in/frontend/react-js/ebank-logo-img.png"
+          className="kt"
           alt="website logo"
         />
-        <HeaderLogoutButton type="button" onClick={onClickLogout}>
-          Logout
-        </HeaderLogoutButton>
-      </NavContainer>
-    </>
+      </Link>
+      <button type="button" className="rr" onClick={remove}>
+        Logout
+      </button>
+    </nav>
   )
 }
 

@@ -1,25 +1,28 @@
+import {Redirect} from 'react-router-dom'
+
+import Cookies from 'js-cookie'
+
 import Header from '../Header'
 
-import {
-  HomeBgContainer,
-  HomeCardContainer,
-  HomeCardHeading,
-  HomeCardImage,
-} from './styledComponents'
+import './index.css'
 
-const Home = () => (
-  <>
-    <HomeBgContainer>
+const Home = () => {
+  const token = Cookies.get('jwt_token')
+  if (token === undefined) {
+    return <Redirect to="/ebank/login" />
+  }
+  return (
+    <div className="h-con">
       <Header />
-      <HomeCardContainer>
-        <HomeCardHeading>Your Flexibility, Our Excellence</HomeCardHeading>
-        <HomeCardImage
+      <div className="hm">
+        <h1 className="heading">Your flexibility, Our Excellence</h1>
+        <img
           src="https://assets.ccbp.in/frontend/react-js/ebank-digital-card-img.png"
           alt="digital card"
+          className="card"
         />
-      </HomeCardContainer>
-    </HomeBgContainer>
-  </>
-)
-
+      </div>
+    </div>
+  )
+}
 export default Home

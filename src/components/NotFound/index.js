@@ -1,23 +1,17 @@
-import {
-  NotFoundCard,
-  NotFoundImage,
-  NotFoundHeading,
-  NotFoundInfo,
-} from './styledComponents'
+import './index.css'
 
 const NotFound = () => (
-  <>
-    <NotFoundCard>
-      <NotFoundImage
-        src="https://assets.ccbp.in/frontend/react-js/ebank-not-found-img.png"
-        alt="not found"
-      />
-      <NotFoundHeading>Page Not found</NotFoundHeading>
-      <NotFoundInfo>
-        We are sorry, the page you requested could not be found
-      </NotFoundInfo>
-    </NotFoundCard>
-  </>
+  <div className="no-con">
+    <img
+      src="https://assets.ccbp.in/frontend/react-js/ebank-not-found-img.png "
+      className="ni"
+      alt="not found"
+    />
+    <h1 className="nh">Page Not Found</h1>
+    <p className="np">
+      We are sorry, the page you requested could not be found
+    </p>
+  </div>
 )
 
 export default NotFound
